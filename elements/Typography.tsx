@@ -25,7 +25,7 @@ export const StyledInput = styled.input`
   border: 0;
 
   &:focus {
-    border-color: transparent;
+    outline: none;
   }
 `;
 
@@ -53,4 +53,21 @@ export const PriceContainer = styled.div`
   align-items: center;
   margin-left: 20px
   margin-right: 20px
+`;
+
+export const PriceText = styled.div`
+  font-size: 32px;
+  font-family: var(--font-nanum);
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+`;
+
+export const DateText = styled.div`
+  font-size: 16px;
+  font-family: var(--font-nanum);
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 15px;
 `;

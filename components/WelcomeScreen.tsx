@@ -1,17 +1,32 @@
-import React, { useState } from 'react';
-import { Container } from '../elements/Container';
+import { useEffect, useState } from 'react';
+
 import UserNameInput from './UserNameInput';
-import { PriceContainer, Heading1 } from '../elements/Typography';
 import PriceLimitsInputs from './PriceLimitsInputs';
+import Form from '../elements/Form';
+import { PriceContainer, Heading1 } from '../elements/Typography';
+import StyledButton from '../elements/Button';
 
 interface WelcomeProps {
   onFinished: (name: string, cautionZone: string, dangerZone: string) => void;
+  userName: string;
+  userCautionZone?: string;
+  userDangerZone?: string;
+  firstVisit?: boolean;
 }
 
-const WelcomeScreen: React.FC<WelcomeProps> = ({ onFinished }) => {
+const WelcomeScreen: React.FC<WelcomeProps> = ({
+  onFinished, firstVisit, userCautionZone, userDangerZone, userName
+}) => {
   const [name, setName] = useState('');
   const [cautionZone, setCautionZone] = useState('');
   const [dangerZone, setDangerZone] = useState('');
+  
+  useEffect(() => {
+    if (firstVisit) return;
+    setName(userName);
+    setCautionZone(userCautionZone);
+    setDangerZone(userDangerZone);
+  }, [firstVisit])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,16 +34,16 @@ const WelcomeScreen: React.FC<WelcomeProps> = ({ onFinished }) => {
   }
 
   return (
-    <Container>
-      <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <UserNameInput value={name} onChangeText={setName} />
       <PriceContainer>
-      <Heading1>Pick your price sensitivity limits:</Heading1>
+        <Heading1>
+          {firstVisit ? 'Pick your price sensitivity limits: ' : 'Your price sensitivity limits: '}
+        </Heading1>
         <PriceLimitsInputs
           cautionLimit={cautionZone}
           dangerLimit={dangerZone}
           onLimitChange={(value, limitType) => {
-            console.log(value, limitType);
             if (limitType === 'caution') {
               setCautionZone(value);
             } else if (limitType === 'danger') {
@@ -37,9 +52,8 @@ const WelcomeScreen: React.FC<WelcomeProps> = ({ onFinished }) => {
           }}
         />
       </PriceContainer>
-      {/* <CustomButton title="Save" onPress={handleSave} /> */}
-      </form>
-    </Container>
+      <StyledButton>Save</StyledButton>
+    </Form>
   );
 }
 
