@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import WelcomeScreen from '../components/WelcomeScreen';
+import CloseButton from '../elements/CloseButton';
 
 const SettingsPage = () => {
   const router = useRouter();  // Create an instance of useRouter
@@ -37,13 +38,16 @@ const SettingsPage = () => {
   };
 
   return (
-    <WelcomeScreen
-      onFinished={handleWelcomeFinished}
-      userCautionZone={cautionZone}
-      userDangerZone={dangerZone}
-      userName={name}
-      firstVisit={firstVisit}
-    />
+    <>
+      <CloseButton />
+      <WelcomeScreen
+        onFinished={handleWelcomeFinished}
+        userCautionZone={cautionZone}
+        userDangerZone={dangerZone}
+        userName={name}
+        firstVisit={firstVisit}
+      />
+    </>
   );
 };
 
