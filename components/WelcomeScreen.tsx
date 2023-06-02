@@ -8,7 +8,7 @@ import StyledButton from '../elements/Button';
 
 interface WelcomeProps {
   onFinished: (name: string, cautionZone: string, dangerZone: string) => void;
-  userName: string;
+  userName?: string;
   userCautionZone?: string;
   userDangerZone?: string;
   firstVisit?: boolean;
