@@ -1,4 +1,4 @@
-import Document, { DocumentContext } from 'next/document'
+import Document, { DocumentContext, Head, Html } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -21,5 +21,17 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+        </Head>
+      </Html>
+    )
   }
 }
