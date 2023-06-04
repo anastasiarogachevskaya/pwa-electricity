@@ -3,9 +3,9 @@
   "name": "PowerWise",
   "icons": [
     {
-      "src": "/icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/assets/icon.jpg",
+      "sizes": "500x500",
+      "type": "image/jpg"
     }
   ],
   "start_url": "/",
