@@ -23,6 +23,7 @@ export const StyledInput = styled.input`
   margin-bottom: 16px;
   text-transform: lowercase;
   border: 0;
+  width: 100px;
 
   &:focus {
     outline: none;
@@ -43,7 +44,7 @@ export const TextContainer = styled.div`
 `;
 
 export const SpecialTextContainer = styled(TextContainer)`
-  transform: translateX(100px);
+  transform: translateX(20px);
   justify-content: center;
 `;
 

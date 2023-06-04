@@ -34,7 +34,7 @@ const WelcomeScreen: React.FC<WelcomeProps> = ({
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} autoComplete="off">
       <UserNameInput value={name} onChangeText={setName} />
       <PriceContainer>
         <Heading1>

@@ -11,6 +11,7 @@ const UserNameInput = ({ value, onChangeText }) => {
         onChange={(e) => onChangeText(e.target.value)}
         placeholder="user"
         id="userName"
+        autoComplete="off"
       />
     </SpecialTextContainer>
   );
