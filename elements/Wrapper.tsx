@@ -8,9 +8,7 @@ export const Wrapper = styled.main`
   align-items: center;
   flex-direction: column;
   background-color: ${(props: { price: any; cautionZone: any; dangerZone: any; }) => {
-    const { price, cautionZone, dangerZone } = props;
-    console.log(cautionZone, dangerZone);
-    
+    const { price, cautionZone, dangerZone } = props;    
     if (price <= 0) {
       return '#f0ccf5';
     } else if (price > 0 && price < cautionZone) {
