@@ -17,24 +17,23 @@ type HomeProps = {
 
 export default function Home({ price }: HomeProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [cautionZone, setCautionZone] = useState(0);
-  const [dangerZone, setDangerZone] = useState(0);
+  const [cautionZone, setCautionZone] = useState(5);
+  const [dangerZone, setDangerZone] = useState(10);
   
   useEffect(() => {
+    console.log(localStorage);
+    if (!localStorage) return;
     const storedCautionZone = localStorage.getItem('cautionZone');
     const storedDangerZone = localStorage.getItem('dangerZone');
 
-    if (storedCautionZone) {
+    if (storedCautionZone && storedCautionZone === undefined) {
       setCautionZone(parseInt(storedCautionZone));
-    } else {
-      setCautionZone(5);
-    }
-    if (storedDangerZone) {
+    } 
+
+    if (storedDangerZone && storedDangerZone === undefined) {
       setDangerZone(parseInt(storedDangerZone));
-    } else {
-      setDangerZone(10);
     }
-  }, []);
+  }, []); //
 
   return (
     <Wrapper cautionZone={cautionZone} dangerZone={dangerZone} price={price}>

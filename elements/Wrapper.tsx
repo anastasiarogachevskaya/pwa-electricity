@@ -9,6 +9,7 @@ export const Wrapper = styled.main`
   flex-direction: column;
   background-color: ${(props: { price: any; cautionZone: any; dangerZone: any; }) => {
     const { price, cautionZone, dangerZone } = props;
+    console.log(cautionZone, dangerZone);
     
     if (price <= 0) {
       return '#f0ccf5';
