@@ -26,9 +26,13 @@ export default function Home({ price }: HomeProps) {
 
     if (storedCautionZone) {
       setCautionZone(parseInt(storedCautionZone));
+    } else {
+      setCautionZone(5);
     }
     if (storedDangerZone) {
       setDangerZone(parseInt(storedDangerZone));
+    } else {
+      setDangerZone(10);
     }
   }, []);
 
